@@ -11,9 +11,9 @@ const Home = () => {
       <div className="home" style={{ backgroundImage: `url(${Earthquake})` }}>
         <div className="headerContainer">
           <h1>Earthquake 2023</h1>
-          <p>Best Food In India</p>
+          <p>Help people now</p>
           <Link to="/menu">
-            <button>Help Now</button>
+            <button>Get Started</button>
           </Link>
         </div>
       </div>
