@@ -15,6 +15,15 @@ import { NavLink } from "react-router-dom";
 import "../../styles/HeaderStyles.css";
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const menuItems = [
+    { title: "Home", to: "/", isActive: "active" },
+    { title: "Menu", to: "/menu", isActive: "" },
+    { title: "About", to: "/about", isActive: "" },
+    { title: "Contact", to: "/contact", isActive: "" },
+    { title: "Login", to: "/login", isActive: "" },
+    { title: "Signup", to: "/signup", isActive: "" },
+  ];
   // hndle menu click
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,7 +41,14 @@ const Header = () => {
       </Typography>
       <Divider />
       <ul className="mobile-navigation">
-        <li>
+        {menuItems.map((item, index) => (
+          <li key={index}>
+            <NavLink activeclassname={item.isActive} to={item.to}>
+              {item.title}
+            </NavLink>
+          </li>
+        ))}
+        {/* <li>
           <NavLink activeclassname="active" to={"/"}>
             Home
           </NavLink>
@@ -45,7 +61,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink to={"/contact"}>Contact</NavLink>
-        </li>
+        </li> */}
       </ul>
     </Box>
   );
@@ -76,7 +92,14 @@ const Header = () => {
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <ul className="navigation-menu">
-                <li>
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <NavLink activeclassname={item.isActive} to={item.to}>
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+                {/* <li>
                   <NavLink activeclassname="active" to={"/"}>
                     Home
                   </NavLink>
@@ -89,7 +112,7 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink to={"/contact"}>Contact</NavLink>
-                </li>
+                </li> */}
               </ul>
             </Box>
           </Toolbar>
